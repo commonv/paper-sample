@@ -1,0 +1,5 @@
+name: ExamplePlugin
+version: 1.0.0
+main: io.github.commonv.sample.plugin.SamplePlugin
+description: An example plugin
+author: CommonV
