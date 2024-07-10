@@ -4,7 +4,7 @@ import net.minecraft.server.level.ServerPlayer
 import net.minecraft.world.entity.Entity
 import org.bukkit.plugin.java.JavaPlugin
 
-class SamplePlugin : JavaPlugin() {
+class Main : JavaPlugin() {
     override fun onEnable() {
         logger.info("Hello world!")
 
