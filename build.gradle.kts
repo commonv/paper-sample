@@ -110,29 +110,29 @@ tasks {
             }
         }
     }
-//
-//    fun registerJar(
-//        classifier: String,
-//        source: Any
-//    ) = register<Copy>("test${classifier.capitalized()}Jar") {
-//        from(source)
-//
-//        val prefix = project.name
-//        val plugins = rootProject.file(".server/plugins-$classifier")
-//        val update = File(plugins, "update")
-//        val regex = Regex("($prefix).*(.jar)")
-//
-//        from(source)
-//        into(if (plugins.listFiles { _, it -> it.matches(regex) }?.isNotEmpty() == true) update else plugins)
-//
-//        doLast {
-//            update.mkdirs()
-//            File(update, "RELOAD").delete()
-//        }
-//    }
-//
-//    registerJar("dev", jar)
-//    registerJar("reobf", reobfJar)
+
+    fun registerJar(
+        classifier: String,
+        source: Any
+    ) = register<Copy>("test${classifier.capitalized()}Jar") {
+        from(source)
+
+        val prefix = project.name
+        val plugins = rootProject.file(".server/plugins-$classifier")
+        val update = File(plugins, "update")
+        val regex = Regex("($prefix).*(.jar)")
+
+        from(source)
+        into(if (plugins.listFiles { _, it -> it.matches(regex) }?.isNotEmpty() == true) update else plugins)
+
+        doLast {
+            update.mkdirs()
+            File(update, "RELOAD").delete()
+        }
+    }
+
+    registerJar("dev", jar)
+    registerJar("reobf", reobfJar)
 }
 
 idea {
